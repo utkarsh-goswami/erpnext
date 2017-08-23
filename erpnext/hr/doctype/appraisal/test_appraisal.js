@@ -13,13 +13,13 @@ QUnit.test("Test: Expense Claim [HR]", function (assert) {
 		() => {
 			cur_frm.set_value('kra_template','Test Appraisal 3'),
 			cur_frm.set_value('start_date','2017-08-21'),
-			cur_frm.set_value('end_date','2017-09-21')
+			cur_frm.set_value('end_date','2017-09-21');
 		},
 		() => frappe.timeout(1),
 		() => frappe.model.set_value('Appraisal Goal','New Appraisal Goal 1','score',4),
 		() => frappe.model.set_value('Appraisal Goal','New Appraisal Goal 1','score_earned',2),
 		() => frappe.model.set_value('Appraisal Goal','New Appraisal Goal 2','score',4),
-		() => frappe.model.set_value('Appraisal Goal','New Appraisal Goal 2','score_earned',2),	
+		() => frappe.model.set_value('Appraisal Goal','New Appraisal Goal 2','score_earned',2),
 		() => frappe.timeout(1),
 		() => frappe.db.get_value('Employee', {'employee_name': 'Test Employee 1'}, 'name'),
 		(r) => {
@@ -47,7 +47,7 @@ QUnit.test("Test: Expense Claim [HR]", function (assert) {
 
 			assert.equal('Test Employee 1',cur_frm.get_field('employee_name').value,
 				'Appraisal is created for correct employee');
-			
+
 			assert.equal(4,cur_frm.get_field('total_score').value,
 				'Total score is correctly calculated');
 		},

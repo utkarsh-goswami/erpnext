@@ -3,7 +3,6 @@ QUnit.module('hr');
 QUnit.test("Test: Appraisal Template [HR]", function (assert) {
 	assert.expect(2);
 	let done = assert.async();
-
 	frappe.run_serially([
 		// Job Opening creation
 		() => {
